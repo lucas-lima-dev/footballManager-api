@@ -1,6 +1,6 @@
 FROM maven AS build
 
-WORKDIR /src/football-manager
+WORKDIR /app/football-manager
 
 COPY . .
 
@@ -10,8 +10,10 @@ FROM openjdk:17
 
 EXPOSE 8080
 
-ARG JAR_FILE=taget/*.jar
+#ARG JAR_FILE=taget/*.jar
 
-COPY ./target/football-manager.jar app.jar
+WORKDIR /app
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+COPY --from=build /app/football-manager/target/football-manager*.jar app.jar
+
+ENTRYPOINT ["java","-jar","app.jar"]
