@@ -12,4 +12,6 @@ public class PlayerService {
     PlayerRepository playerRepository;
 
     public void createNewPlayer(PlayerEntity player) { playerRepository.save(player); }
+
+    public void deleteAllPlayers() { playerRepository.deleteAll(); }
 }

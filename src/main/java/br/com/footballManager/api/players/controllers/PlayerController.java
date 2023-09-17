@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/jogador")
+@RequestMapping
 @CrossOrigin(origins = {"http://localhost:4200"})
 public class PlayerController {
 
@@ -16,8 +16,13 @@ public class PlayerController {
     @Autowired
     private PlayerService playerService;
 
-    @PostMapping
+    @PostMapping("/jogador")
     public void createNewPlayer(@RequestBody PlayerDTO player ) {
         playerService.createNewPlayer(new PlayerEntity(player));
+    }
+
+    @DeleteMapping("/jogador/all")
+    public void deleteAllPlayers() {
+        playerService.deleteAllPlayers();
     }
 }
