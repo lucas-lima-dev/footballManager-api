@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"https://football-manager-front.vercel.app/"})
 public class PlayerController {
 
     @Autowired
@@ -16,6 +16,7 @@ public class PlayerController {
 
     @PostMapping("/jogador")
     public void createNewPlayer(@RequestBody PlayerDTO player ) {
+        System.out.println(player);
         playerService.createNewPlayer(new PlayerEntity(player));
     }
 
