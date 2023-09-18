@@ -16,7 +16,6 @@ public class PlayerController {
 
     @PostMapping("/jogador")
     public void createNewPlayer(@RequestBody PlayerDTO player ) {
-        System.out.println(player);
         playerService.createNewPlayer(new PlayerEntity(player));
     }
 

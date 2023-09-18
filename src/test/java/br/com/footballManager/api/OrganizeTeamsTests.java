@@ -9,7 +9,7 @@ import java.util.Map;
 import br.com.footballManager.api.teams.utils.OrganizeTeams;
 import org.junit.jupiter.api.Test;
 
-public class AceitacaoTest {
+public class OrganizeTeamsTests {
 
 
 
